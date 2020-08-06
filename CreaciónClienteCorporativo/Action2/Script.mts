@@ -243,12 +243,12 @@ Sub DetallesCliente()
 			While(JavaWindow("Ejecutivo de interacción").JavaInternalFrame("Dar de alta al cliente").JavaTable("SearchJTable").Exist)=False
 				wait 1
 			Wend
-			wait 1
+			wait 3
 		filas=JavaWindow("Ejecutivo de interacción").JavaInternalFrame("Dar de alta al cliente").JavaTable("SearchJTable").GetROProperty("rows")
 		For Iterator = 0 To filas-1 Step 1
 			JavaWindow("Ejecutivo de interacción").JavaInternalFrame("Dar de alta al cliente").JavaTable("SearchJTable").SelectRow(Iterator)
 			dato=JavaWindow("Ejecutivo de interacción").JavaInternalFrame("Dar de alta al cliente").JavaTable("SearchJTable").GetCellData(Iterator,"#1") 
-			wait 3
+			wait 4
 			If CLng(DataTable("e_Fec_Ciclo", dtLocalsheet))=dato Then
 				JavaWindow("Ejecutivo de interacción").CaptureBitmap RutaEvidencias() & Ciclo&".png", True
 				imagenToWord "Ciclo de Facturación", RutaEvidencias() & Ciclo&".png"
